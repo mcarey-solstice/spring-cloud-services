@@ -1,0 +1,10 @@
+---
+docs_dir: content
+site_name: Spring Cloud Services Introduction
+site_description: Introduces the convenience of Spring Cloud Services
+nav:
+  - Home: index.md
+  - Spring Cloud Services:
+    - Config Server: config-server.md
+    - Service Registry: service-registry.md
+    - Circuit Breaker Dashboard: circuit-breaker.md
