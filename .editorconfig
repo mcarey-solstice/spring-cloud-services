@@ -15,7 +15,7 @@ insert_final_newline = true
 trim_trailing_whitespace = true
 
 indent_style = space
-indent_size = 2
+indent_size = 4
 
 ##
 # Makefiles use tabs
@@ -24,10 +24,10 @@ indent_size = 2
 indent_style = tab
 
 ##
-# Configurations with four spaces
+# Configurations with two spaces
 ##
-[{**.java|**.groovy|**.py}]
-indent_size = 4
+[{**.json|**.yaml|**.yml|**.sh}]
+indent_size = 2
 
 
 # .editorconfig

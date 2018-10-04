@@ -4,6 +4,10 @@ site_name: Spring Cloud Services Introduction
 site_description: Introduces the convenience of Spring Cloud Services
 nav:
   - Home: index.md
+  - Applications:
+    - Blockbuster: blockbuster.md
+    - Encore Books: encore-books.md
+    - Library: library.md
   - Spring Cloud Services:
     - Config Server: config-server.md
     - Service Registry: service-registry.md
