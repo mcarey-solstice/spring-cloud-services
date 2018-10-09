@@ -18,7 +18,11 @@ spring:
 
 ---
 spring:
-  profile: local
+  profiles: local
 
 server:
   port: 8082
+
+---
+spring:
+  profiles: docker

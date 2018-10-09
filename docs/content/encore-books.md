@@ -10,4 +10,4 @@ cd encore-books && ./gradlew bootRun
 ```
 
 ## Access the Application
-The server will be running on http://localhost:8081
+The server will be running on http://localhost:8082

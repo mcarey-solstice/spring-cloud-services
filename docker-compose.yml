@@ -1,0 +1,94 @@
+###
+#
+##
+
+version: '3'
+
+services:
+  docs:
+    image: squidfunk/mkdocs-material
+    volumes:
+      - ./docs:/docs
+    ports:
+      - "8000:8000"
+
+  library:
+    image: gradle:latest
+    working_dir: /srv
+    command: ./gradlew bootRun
+    volumes:
+      - ./apps/library:/srv
+      - ./storage/library.gradle:/home/gradle/.gradle
+    ports:
+      - "8080:8080"
+    environment:
+      - "GRADLE_HOME=/home/gradle/.gradle"
+      - "SPRING_PROFILES_ACTIVE=docker,dev"
+
+  blockbuster:
+    image: gradle:latest
+    working_dir: /srv
+    command: ./gradlew bootRun
+    volumes:
+      - ./apps/blockbuster:/srv
+      - ./storage/blockbuster.gradle:/home/gradle/.gradle
+    ports:
+      - "8081:8080"
+    environment:
+      - "GRADLE_HOME=/home/gradle/.gradle"
+      - "SPRING_PROFILES_ACTIVE=docker,dev"
+      - "SERVICES_MOVIES_POPULATE=true"
+
+  encore-books:
+    image: gradle:latest
+    working_dir: /srv
+    command: ./gradlew bootRun
+    volumes:
+      - ./apps/encore-books:/srv
+      - ./storage/encore-books.gradle:/home/gradle/.gradle
+    ports:
+      - "8082:8080"
+    environment:
+      - "GRADLE_HOME=/home/gradle/.gradle"
+      - "SPRING_PROFILES_ACTIVE=docker,dev"
+      - "SERVICES_BOOKS_POPULATE=true"
+
+  config-server:
+    image: gradle:latest
+    working_dir: /srv
+    command: ./gradlew bootRun
+    volumes:
+      - ./apps/config-server:/srv
+      - ./configs:/configs
+      - ./storage/config-server.gradle:/home/gradle/.gradle
+    ports:
+      - "8888:8080"
+    environment:
+      - "GRADLE_HOME=/home/gradle/.gradle"
+      - "SPRING_PROFILES_ACTIVE=docker,dev,file-config"
+
+  service-registry:
+    image: gradle:latest
+    working_dir: /srv
+    command: ./gradlew bootRun
+    volumes:
+      - ./apps/service-registry:/srv
+      - ./storage/service-registry.gradle:/home/gradle/.gradle
+    ports:
+      - "8761:8080"
+    environment:
+      - "GRADLE_HOME=/home/gradle/.gradle"
+      - "SPRING_PROFILES_ACTIVE=docker,dev"
+
+  circuit-breaker:
+    image: gradle:latest
+    working_dir: /srv
+    command: ./gradlew bootRun
+    volumes:
+      - ./apps/circuit-breaker:/srv
+      - ./storage/circuit-breaker.gradle:/home/gradle/.gradle
+    ports:
+      - "8090:8080"
+    environment:
+      - "GRADLE_HOME=/home/gradle/.gradle"
+      - "SPRING_PROFILES_ACTIVE=docker,dev"

@@ -9,7 +9,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration
-@ConditionalOnProperty(name = "books.populate")
+@ConditionalOnProperty(name = "services.books.populate")
 public class PopulateBooksConfig {
 
     @Autowired

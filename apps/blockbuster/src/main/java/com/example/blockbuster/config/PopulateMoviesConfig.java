@@ -9,7 +9,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration
-@ConditionalOnProperty(name = "movies.populate")
+@ConditionalOnProperty(name = "services.movies.populate")
 public class PopulateMoviesConfig {
 
     @Autowired

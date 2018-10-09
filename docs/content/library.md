@@ -2,7 +2,7 @@
 The demo application to demonstrate features of the various Spring Cloud Services.
 
 ## Story
-Imagine that you would like to use an external service that stores lists of movies, books, music you like.  We will use several APIs as external services for data on the latest media.
+Imagine that you would like to use an external service that stores lists of movies, books, music you like.  We will use several APIs as external services for data on the latest media and display the information in a nice form.
 
 ## Running the Application
 Via Gradle

@@ -1,0 +1,4 @@
+spring:
+  application:
+    name: encore-books
+    version: 0.0.1
