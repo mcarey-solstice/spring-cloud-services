@@ -37,4 +37,7 @@ dependencies {
 
     // Actuator
     compile('org.springframework.boot:spring-boot-starter-actuator')
+
+    // Hystrix
+    compile('org.springframework.cloud:spring-cloud-starter-netflix-hystrix')
 }

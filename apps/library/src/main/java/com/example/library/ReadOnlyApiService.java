@@ -1,5 +1,6 @@
 package com.example.library;
 
+import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.HttpStatus;
@@ -29,6 +30,7 @@ public abstract class ReadOnlyApiService<T, ID> {
         return getUri("" + id);
     }
 
+    @HystrixCommand(fallbackMethod = "fallbackOne")
     public Optional<T> findById(ID id) {
         ResponseEntity<T> response = restTemplate.exchange(
                 getUri(id),
@@ -47,6 +49,7 @@ public abstract class ReadOnlyApiService<T, ID> {
         return null;
     }
 
+    @HystrixCommand(fallbackMethod = "fallbackAll")
     public List<T> findAll() {
         ResponseEntity<List<T>> response = restTemplate.exchange(
                 getUri(),
@@ -73,7 +76,11 @@ public abstract class ReadOnlyApiService<T, ID> {
         return list;
     }
 
-    public List<T> fallback() {
+    public List<T> fallbackAll() {
         return new ArrayList<>();
+    }
+
+    public T fallbackOne() {
+        return null;
     }
 }
