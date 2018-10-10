@@ -7,14 +7,25 @@ import org.springframework.stereotype.Service;
 @Service
 public class BookService extends ReadOnlyApiService<Book, Long> {
 
-    // TODO: Replace with service registry
+//    @Value("${services.books.uri ?: http://localhost:8082}")
+//    private String baseUri;
+//
+//    @Override
+//    protected String getBaseUri() {
+//        return String.format("%s/%s", baseUri, "books");
+//    }
 
-    @Value("${services.books.uri ?: http://localhost:8082}")
-    private String baseUri;
+    @Value("${services.movies.serviceName:encore-books}")
+    private String serviceName;
 
     @Override
-    protected String getBaseUri() {
-        return String.format("%s/%s", baseUri, "books");
+    protected String getServiceName() {
+        return serviceName;
+    }
+
+    @Override
+    protected String getContextPath() {
+        return "books";
     }
 
 }

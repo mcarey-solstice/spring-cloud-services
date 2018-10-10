@@ -2,3 +2,21 @@ spring:
   application:
     name: encore-books
     version: 0.0.1
+
+---
+spring:
+  profiles: local
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka
+
+---
+spring:
+  profiles: docker
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://service-registry:8761/eureka

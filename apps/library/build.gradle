@@ -37,4 +37,8 @@ dependencies {
 
     // Actuator
     compile('org.springframework.boot:spring-boot-starter-actuator')
+
+	// Service Discovery
+	compile('org.springframework.cloud:spring-cloud-starter-netflix-eureka-client')
+	testCompile('org.springframework.cloud:spring-cloud-starter-eureka-server')
 }
