@@ -9,7 +9,7 @@ public class MovieService extends ReadOnlyApiService<Movie, Long> {
 
     // TODO: Replace with service registry
 
-    @Value("${services.movies.uri?:http://localhost:8081}")
+    @Value("${services.movies.uri:http://localhost:8081}")
     private String baseUri;
 
     @Override

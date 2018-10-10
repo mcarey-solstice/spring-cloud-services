@@ -9,7 +9,7 @@ public class BookService extends ReadOnlyApiService<Book, Long> {
 
     // TODO: Replace with service registry
 
-    @Value("${services.books.uri ?: http://localhost:8082}")
+    @Value("${services.books.uri:http://localhost:8082}")
     private String baseUri;
 
     @Override
