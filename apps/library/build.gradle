@@ -37,6 +37,4 @@ dependencies {
 
     // Actuator
     compile('org.springframework.boot:spring-boot-starter-actuator')
-
-	compile('com.h2database:h2')
 }
