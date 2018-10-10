@@ -29,7 +29,7 @@ function generate() {
 
   local template="$1"
   local destination="$2"
-  local file="${template}/$destination$ext"
+  local file="${template}/$destination"
 
   if [[ -f "$file" ]]; then
     {
