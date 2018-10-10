@@ -37,4 +37,7 @@ dependencies {
 
     // Actuator
     compile('org.springframework.boot:spring-boot-starter-actuator')
+
+	// Config Server
+	compile('org.springframework.cloud:spring-cloud-starter-config')
 }
