@@ -1,6 +1,5 @@
 package com.example.blockbuster.movies;
 
-import lombok.Builder;
 import lombok.Data;
 
 import javax.persistence.Entity;
